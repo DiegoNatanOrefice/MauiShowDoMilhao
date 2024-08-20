@@ -264,7 +264,9 @@ namespace MauiShowDoMilhao
                     new Alternativa { Correta = true, Descricao = "BAHIA" },
                 }
             },
-
+        };
+        List<Pergunta> perguntas_medias = new()
+        {
             new Pergunta
             {
                 Id = 21,
@@ -524,6 +526,9 @@ namespace MauiShowDoMilhao
                     new Alternativa { Correta = false, Descricao = "CARLOS GALHARDO" },
                 }
             },
+        };
+        List<Pergunta> perguntas_dificeis = new()
+        {
             new Pergunta
             {
                 Id = 41,
@@ -784,9 +789,17 @@ namespace MauiShowDoMilhao
                 }
             },
         };
+        public static Pergunta getRandomPerguntaFacil()
+        {
+            Random r = new Random();
+
+            int sorteado = r.Next(1, perguntas_faceis.Count);
+
+            return perguntas_faceis[sorteado];
+        }
         public App()
         {
-            InitializeComponent()
+            InitializeComponent();
 
             MainPage = new AppShell();
         }
